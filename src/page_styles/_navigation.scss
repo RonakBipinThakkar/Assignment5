@@ -1,0 +1,70 @@
+figure {
+	@include setHeightAndWidth(190px, 400px);
+	background: $logo no-repeat 0 50px;
+	@include clearFix(left);
+	display: block;
+	@include setMarginAndPadding(0, null);
+
+	@include break() {
+		@include setHeightAndWidth(140px, inherit);
+		@include clearFix(none);
+		background-position: center;
+	}
+
+	@include break($phone) {
+		background-size: contain;
+		@include setHeightAndWidth(100px, null);
+	}
+}
+
+/* NAVIGATION */
+nav {
+	@include setHeightAndWidth(190px, 540px);
+	@include clearFix(left);
+	text-align: right;
+
+	@include break() {
+		@include setHeightAndWidth(50px, inherit);
+		@include clearFix(none);
+		text-align: center;
+	}
+
+	@include break($phone) {
+		@include setMarginAndPadding(0 0 40px 0 !important, null);
+	}
+
+	ul {
+		list-style-type: none;
+		margin-top:95px;
+
+		@include break() {
+			margin-top:95px;
+		}
+
+		li {
+			display: inline;
+			font-size: 0.8em;
+			margin-right : 10px;
+
+			@include break() {
+				font-size: 1em;
+				margin: 0 10px;
+			}
+
+			@include break($tab) {
+				font-size: 0.8em;
+				margin: 0 5px;
+			}
+
+			a {
+				color: $dark_orange;
+				text-decoration: none;
+				letter-spacing: -0.01em;
+
+				&:hover {
+					color: $white;
+				}
+			}
+		}
+	}
+}

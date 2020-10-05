@@ -1,0 +1,20 @@
+@mixin setHeightAndWidth($height: auto, $width: auto) {
+	height: $height;
+	width: $width;
+}
+
+@mixin setMarginAndPadding($margin: initial, $padding: initial) {
+	margin: $margin;
+	padding: $padding;
+}
+
+@mixin clearFix($float: null, $clear: null) {
+	float: $float;
+	clear: $clear;
+}
+
+@mixin break($width: $default-width) {
+	@media screen and (max-width: $width) {
+		@content;
+	}
+}

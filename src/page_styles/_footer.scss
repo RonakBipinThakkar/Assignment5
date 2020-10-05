@@ -1,0 +1,47 @@
+/* FOOTER */
+footer {
+	@include setHeightAndWidth(120px, 100%);
+	background: $dark_gray;
+	text-align: center;
+	color: $white;
+	padding-top : 50px;
+
+	@include break($phone) {
+		text-align: center;
+
+		p, img {
+			@include clearFix(none);
+			@include setMarginAndPadding(0, null);
+		}
+	}
+}
+
+$social-media-counts: one, two, three, four;
+
+
+.social-media {	
+	@include setMarginAndPadding(0 auto, null);
+	@include setHeightAndWidth(null, 165px);
+	
+	div {
+		@include clearFix(left);
+		margin-right: 5px;
+	}
+	
+	a {
+		display: block;
+		@include setHeightAndWidth(36px, 36px);
+		text-indent: -9999px;
+	}
+	
+	div {
+		@each $count in $social-media-counts {
+			$i: index($list: $social-media-counts, $value: $count);
+
+			&.#{$count} {
+				background: $social-media-img #{($i - 1) * -38}px 0;
+			}
+		}
+	}
+}
+

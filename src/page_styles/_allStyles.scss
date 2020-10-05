@@ -1,0 +1,199 @@
+/* BASIC STYLES */
+body {
+	font-family: $font-family-body;
+	font-size: 1em;
+	line-height: 2em;
+	margin: 0;
+	background: $body-background-image $white repeat-x;
+}
+
+main {
+	@include setHeightAndWidth(null, $pc + 1);
+	@include setMarginAndPadding(0 auto, 0 10px);
+
+	@include break() {
+		@include setHeightAndWidth(null, $tab + 1);
+	}
+
+	@include break($tab - 1) {
+		@include setHeightAndWidth(null, $phone + 1);
+	}
+
+	@include break($phone) {
+		@include setHeightAndWidth(null, 300);
+	}
+}
+/* HEADER */
+header {
+	@include setHeightAndWidth(null, inherit);
+	@include clearFix(null, both);
+	text-align: center;
+	padding-top:40px;
+	
+	img {
+		max-width: 100%;
+		@include setHeightAndWidth(auto, null);
+		
+		@include break($tab) {
+			margin-bottom:100px;
+		}
+		
+		@include break($phone) {
+			margin-bottom:80px;
+		}
+	}
+	
+	h1 {
+		color: $dark_orange;
+		font-weight: 100;
+		font-size: 4em;
+		line-height: 0;
+		
+		@include break() {
+			font-size: 3em;
+		}
+		
+		@include break($tab) {
+			font-size: 2em;
+		}
+		
+		&:first-child {
+			@include break($phone) {
+				font-size: 1.4em;
+				margin-bottom: 20px;
+			}
+		}
+	}
+	
+	h2 {
+		color: $white;
+		font-weight: 900;
+		font-size: 2.5em;
+		line-height: 0;
+		margin-bottom:70px;
+		
+		@include break() {
+			font-size: 1.5em;
+		}
+		
+		@include break($tab) {
+			font-size: 1em;
+		}
+		
+		@include break($phone) {
+			font-size: 1.4em;
+		}
+	}
+	
+	h3 {
+		color: $light_gray;
+		font-weight: 400;
+		font-size: 2em;
+		line-height: 0;
+		margin-bottom:50px;
+		
+		@include break($tab) {
+			font-size: 1.5em;
+		}
+		
+		@include break($phone) {
+			color: $white;
+			font-size: 1em;
+		}
+	}
+	
+}
+
+
+#headline {
+	@include setHeightAndWidth(130px, 100%);
+	background: $light_orange;
+	text-align: center;
+	@include setMarginAndPadding(0 auto, null);
+	
+	h1 {
+		color: $white;
+		font-size: 2.5em;
+		font-weight: 100;
+		padding-top: 50px;
+		
+		@include break($tab) {
+			font-size: 2em;
+			padding-top: 50px;
+		}
+		
+		@include break($phone) {
+			font-size: 1.5em;
+			padding-top: 30px;
+		}
+	}
+	
+}
+/* CONTENT */
+#content {
+	@include setHeightAndWidth(null, $pc + 1);
+	@include setMarginAndPadding(20px auto, null);
+
+	@include break() {
+		@include setHeightAndWidth(null, inherit);
+	}
+	
+	h3 {
+		color: $light_gray;
+		font-size: 2em;
+		font-weight: 400;
+
+		@include break($phone) {
+			font-size: 1.6em;
+		}
+	}
+	
+	#products {
+		@include setHeightAndWidth(null, $phone + 1);
+		@include clearFix(left);
+	}
+	
+	#products img {
+		@include clearFix(left);
+		margin-right: 20px;
+	}
+		
+	#products, #testimonials {
+		@include break() {
+			@include setHeightAndWidth(null, 46%);
+			@include setMarginAndPadding(0 2%, null);	
+		}
+		
+		@include break($tab) {
+			@include setHeightAndWidth(null, 96%);
+			@include setMarginAndPadding(0 2%, null);
+			@include clearFix(none);
+		}
+	}
+	
+	#products article {
+		margin-bottom: 40px;
+	}
+	
+	#products h4 {
+		line-height: 1em;
+	}
+	
+	#testimonials {
+		@include setHeightAndWidth(null, $phone + 1);
+		@include clearFix(right);
+	}
+}
+
+.greybar {
+	@include setHeightAndWidth(90px, 100%);
+	background: $offWhite;
+	@include clearFix(null, both);
+	padding-top:30px;
+}
+
+@include break($phone) {
+	.greybar, article img {
+		display: none;
+	}
+}
